@@ -2,5 +2,6 @@
 import { bootstrap }      from '@angular/platform-browser-dynamic';
 
 import { AppComponent }   from './app.component';
+import { DataService } from './services/data.service';
 
-bootstrap(AppComponent);
+bootstrap(AppComponent, [DataService]);

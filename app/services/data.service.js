@@ -9,20 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var table_input_component_1 = require('./table-input/table-input.component');
-var steps_component_1 = require('./steps/steps.component');
-var AppComponent = (function () {
-    function AppComponent() {
+var DataService = (function () {
+    function DataService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n\t<h1>Association Rules</h1>\n\t<table-input></table-input>\n\t<steps></steps>\n\t",
-            directives: [table_input_component_1.TableInputComponent, steps_component_1.StepsComponent]
-        }), 
+    DataService.prototype.getData = function () {
+        return this.data;
+    };
+    DataService.prototype.setData = function (data) {
+        this.data = data;
+    };
+    DataService.prototype.setVariablesNames = function (names) {
+        this.variables_names = names;
+    };
+    DataService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], DataService);
+    return DataService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.DataService = DataService;
+//# sourceMappingURL=data.service.js.map

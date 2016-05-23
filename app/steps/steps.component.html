@@ -1,0 +1,56 @@
+<h2>Steps</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>&alpha;'s</th>
+			<th>&beta;'s</th>
+			<th>&gamma;'s</th>
+			<th>&beta;'s of &gamma;'s (&omega;'s)</th>
+			<th>Rules</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let alpha of alphas; let i=index">
+						<td>&alpha;{{i+1}}</td>
+						<td>{{alpha}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let beta of betas_display; let i=index">
+						<td>&beta;(E{{i+1}})</td>
+						<td>{{beta}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let gamma of gammas_display; let i=index">
+						<td>&gamma;(&alpha;{{i+1}})</td>
+						<td>{{gamma}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let omega of omegas_display; let i=index">
+						<td>&beta;(&gamma;(&alpha;{{i+1}}))</td>
+						<td>{{omega}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let rule of rules1">
+						<td>{{rule}}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
