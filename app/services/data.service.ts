@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
 	data: string[][];
 	variables_names: string[];
+	support: number;
 
 	constructor() {
 	}
@@ -18,6 +19,10 @@ export class DataService {
 	
 	setVariablesNames(names: string[]) {
 		this.variables_names = names;
+	}
+	
+	setSupport(sup: number) {
+		this.support = sup;
 	}
 	
 }

@@ -8,11 +8,17 @@ import { DataService } from './services/data.service';
 	selector: 'my-app',
 	template: `
 	<h1>Association Rules</h1>
-	<table-input></table-input>
-	<steps></steps>
+	<div class="container" style="width: 95%">
+		<div class="row">
+			<table-input></table-input>
+		</div>
+		<div class="row">
+			<steps>{{msg}}</steps>
+		</div>
+	</div>
 	`,
 	directives: [TableInputComponent, StepsComponent]
 })
 export class AppComponent {
-	
+	msg = 'Calculating';
 }

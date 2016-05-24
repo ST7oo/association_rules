@@ -1,5 +1,6 @@
 <h2>Steps</h2>
 
+<h3>Order 1</h3>
 <table class="table">
 	<thead>
 		<tr>
@@ -8,6 +9,8 @@
 			<th>&gamma;'s</th>
 			<th>&beta;'s of &gamma;'s (&omega;'s)</th>
 			<th>Rules</th>
+			<th>Support</th>
+			<th>Valid Rules</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -30,7 +33,7 @@
 			</td>
 			<td>
 				<table class="table table-striped">
-					<tr *ngFor="let gamma of gammas_display; let i=index">
+					<tr *ngFor="let gamma of gammas1_display; let i=index">
 						<td>&gamma;(&alpha;{{i+1}})</td>
 						<td>{{gamma}}</td>
 					</tr>
@@ -38,7 +41,7 @@
 			</td>
 			<td>
 				<table class="table table-striped">
-					<tr *ngFor="let omega of omegas_display; let i=index">
+					<tr *ngFor="let omega of omegas1_display; let i=index">
 						<td>&beta;(&gamma;(&alpha;{{i+1}}))</td>
 						<td>{{omega}}</td>
 					</tr>
@@ -46,8 +49,136 @@
 			</td>
 			<td>
 				<table class="table table-striped">
-					<tr *ngFor="let rule of rules1">
-						<td>{{rule}}</td>
+					<tr *ngFor="let rule of rules1; let i=index">
+						<td [ngClass]="{success: supports1[i] > dataService.support}">{{rule}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let support of supports1_display; let i=index">
+						<td [ngClass]="{success: supports1[i] > dataService.support}">{{support}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr class="success" *ngFor="let rule of valid_rules1">
+						<td >&alpha;{{rule[0]+1}}</td>
+						<td>=></td>
+						<td >&alpha;{{rule[1]+1}}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>Order 2</h3>
+<table class="table">
+	<thead>
+		<tr>
+			<th>&gamma;'s</th>
+			<th>&beta;'s of &gamma;'s (&omega;'s)</th>
+			<th>Rules</th>
+			<th>Support</th>
+			<th>Valid Rules</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let key of gammas2_keys">
+						<td>&gamma;({{key}})</td>
+						<td>{{gammas2_display[key]}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let key of gammas2_keys">
+						<td>&beta;(&gamma;({{key}}))</td>
+						<td>{{omegas2_display[key]}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let key of gammas2_keys">
+						<td [ngClass]="{success: supports2[key] > dataService.support}">{{rules2[key]}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let key of gammas2_keys">
+						<td [ngClass]="{success: supports2[key] > dataService.support}">{{supports2_display[key]}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr class="success" *ngFor="let rule of valid_rules2">
+						<td >&alpha;{{rule[0][0]}}&&alpha;{{rule[0][1]}}</td>
+						<td>=></td>
+						<td >&alpha;{{rule[1]+1}}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>Order 3</h3>
+<table class="table">
+	<thead>
+		<tr>
+			<th>&gamma;'s</th>
+			<th>&beta;'s of &gamma;'s (&omega;'s)</th>
+			<th>Rules</th>
+			<th>Support</th>
+			<th>Valid Rules</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let key of gammas3_keys">
+						<td>&gamma;({{key}})</td>
+						<td>{{gammas3_display[key]}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let key of gammas3_keys">
+						<td>&beta;(&gamma;({{key}}))</td>
+						<td>{{omegas3_display[key]}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let key of gammas3_keys">
+						<td [ngClass]="{success: supports3[key] > dataService.support}">{{rules3[key]}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr *ngFor="let key of gammas3_keys">
+						<td [ngClass]="{success: supports3[key] > dataService.support}">{{supports3_display[key]}}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped">
+					<tr class="success" *ngFor="let rule of valid_rules3">
+						<td >&alpha;{{rule[0][0]}}&&alpha;{{rule[0][1]}}</td>
+						<td>=></td>
+						<td >&alpha;{{rule[1]+1}}</td>
 					</tr>
 				</table>
 			</td>

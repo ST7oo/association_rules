@@ -13,11 +13,12 @@ var table_input_component_1 = require('./table-input/table-input.component');
 var steps_component_1 = require('./steps/steps.component');
 var AppComponent = (function () {
     function AppComponent() {
+        this.msg = 'Calculating';
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n\t<h1>Association Rules</h1>\n\t<table-input></table-input>\n\t<steps></steps>\n\t",
+            template: "\n\t<h1>Association Rules</h1>\n\t<div class=\"container\" style=\"width: 95%\">\n\t\t<div class=\"row\">\n\t\t\t<table-input></table-input>\n\t\t</div>\n\t\t<div class=\"row\">\n\t\t\t<steps>{{msg}}</steps>\n\t\t</div>\n\t</div>\n\t",
             directives: [table_input_component_1.TableInputComponent, steps_component_1.StepsComponent]
         }), 
         __metadata('design:paramtypes', [])

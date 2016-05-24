@@ -21,6 +21,9 @@ var DataService = (function () {
     DataService.prototype.setVariablesNames = function (names) {
         this.variables_names = names;
     };
+    DataService.prototype.setSupport = function (sup) {
+        this.support = sup;
+    };
     DataService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

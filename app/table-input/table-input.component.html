@@ -1,15 +1,23 @@
 <h2>Input data</h2>
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Ex</th>
-			<th *ngFor="let name of dataService.variables_names">{{name}}</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let observation of dataService.data; let i=index">
-			<td>{{i+1}}</td>
-			<td *ngFor="let value of observation">{{value}}</td>
-		</tr>
-	</tbody>
-</table>
+
+<div class="col-xs-9">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Ex</th>
+				<th *ngFor="let name of dataService.variables_names">{{name}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let observation of dataService.data; let i=index">
+				<td>{{i+1}}</td>
+				<td *ngFor="let value of observation">{{value}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="col-xs-3">
+	<label>Support</label>
+	<span>{{dataService.support}}</span>
+</div>
