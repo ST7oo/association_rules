@@ -7,6 +7,12 @@ To run:
  - Run `npm install`
  - Run `npm start` (it will open a browser tab, and watch for changes)
 
+To use:
+
+ - Click Reset
+ - Add a row (observation) separated by `,`
+ - Click Calculate
+	 - Change Support threshold
 
 ----------
 
