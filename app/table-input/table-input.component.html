@@ -1,5 +1,13 @@
 <h2>Input data</h2>
 
+<div class="col-xs-5">
+	<label>Add row</label>
+	<input class="form-control" #new_row placeholder="A1,B1,D1,C1" (keyup.enter)="addRow(new_row.value); new_row.value=''">
+	<br>
+	<button type="button" class="btn btn-danger" (click)="reset()">Reset</button>
+	
+</div>
+
 <div class="col-xs-9">
 	<table class="table table-striped">
 		<thead>
@@ -15,6 +23,8 @@
 			</tr>
 		</tbody>
 	</table>
+	<br>
+	<button type="button" class="btn btn-primary" (click)="calculate()">Calculate</button>
 </div>
 
 <div class="col-xs-3">

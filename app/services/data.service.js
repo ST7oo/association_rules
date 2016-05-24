@@ -11,7 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var DataService = (function () {
     function DataService() {
-        this.supportChanged = new core_1.EventEmitter();
+        this.supportChanged$ = new core_1.EventEmitter();
+        this.calculate$ = new core_1.EventEmitter();
     }
     DataService.prototype.getData = function () {
         return this.data;
@@ -19,14 +20,20 @@ var DataService = (function () {
     DataService.prototype.setData = function (data) {
         this.data = data;
     };
+    DataService.prototype.addRow = function (row) {
+        this.data.push(row);
+    };
     DataService.prototype.setVariablesNames = function (names) {
         this.variables_names = names;
     };
     DataService.prototype.setSupport = function (sup) {
         if (sup != this.support) {
             this.support = sup;
-            this.supportChanged.emit(sup);
+            this.supportChanged$.emit(sup);
         }
+    };
+    DataService.prototype.recalculate = function () {
+        this.calculate$.emit(true);
     };
     DataService = __decorate([
         core_1.Injectable(), 

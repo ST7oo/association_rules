@@ -39,7 +39,8 @@ export class StepsComponent implements OnInit {
 	valid_rules3: Object;*/
 	
 	constructor(private dataService: DataService) { 
-		dataService.supportChanged.subscribe(sup => this.calculate());
+		dataService.supportChanged$.subscribe(sup => this.calculate());
+		dataService.calculate$.subscribe(b => this.calculate());
 	}
 
 	ngOnInit() { 

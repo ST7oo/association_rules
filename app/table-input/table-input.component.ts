@@ -41,4 +41,19 @@ export class TableInputComponent implements OnInit {
 	supportChanged(new_support) {
 		this.dataService.setSupport(new_support);
 	}
+	
+	addRow(text: string) {
+		let obs = text.split(',');
+		if (obs.length > 0) {
+			this.dataService.addRow(obs);
+		}
+	}
+	
+	calculate() {
+		this.dataService.recalculate();
+	}
+	
+	reset() {
+		this.dataService.setData([]);
+	}
 }

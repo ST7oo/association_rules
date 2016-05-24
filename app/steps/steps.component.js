@@ -23,7 +23,8 @@ var StepsComponent = (function () {
     function StepsComponent(dataService) {
         var _this = this;
         this.dataService = dataService;
-        dataService.supportChanged.subscribe(function (sup) { return _this.calculate(); });
+        dataService.supportChanged$.subscribe(function (sup) { return _this.calculate(); });
+        dataService.calculate$.subscribe(function (b) { return _this.calculate(); });
     }
     StepsComponent.prototype.ngOnInit = function () {
         this.calculate();

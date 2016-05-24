@@ -5,10 +5,12 @@ export class DataService {
 	data: string[][];
 	variables_names: string[];
 	support: number;
-	public supportChanged: EventEmitter<number>; 
+	public supportChanged$: EventEmitter<number>;
+	public calculate$: EventEmitter<boolean>;
 
 	constructor() {
-		this.supportChanged = new EventEmitter();
+		this.supportChanged$ = new EventEmitter();
+		this.calculate$ = new EventEmitter();
 	}
 	
 	getData() {
@@ -19,6 +21,10 @@ export class DataService {
 		this.data = data;
 	}
 	
+	addRow(row: string[]) {
+		this.data.push(row);
+	}
+	
 	setVariablesNames(names: string[]) {
 		this.variables_names = names;
 	}
@@ -26,8 +32,12 @@ export class DataService {
 	setSupport(sup: number) {
 		if (sup != this.support){
 			this.support = sup;
-			this.supportChanged.emit(sup);
+			this.supportChanged$.emit(sup);
 		}
+	}
+	
+	recalculate() {
+		this.calculate$.emit(true);
 	}
 	
 }

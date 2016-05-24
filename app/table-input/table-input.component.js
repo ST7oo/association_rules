@@ -42,6 +42,18 @@ var TableInputComponent = (function () {
     TableInputComponent.prototype.supportChanged = function (new_support) {
         this.dataService.setSupport(new_support);
     };
+    TableInputComponent.prototype.addRow = function (text) {
+        var obs = text.split(',');
+        if (obs.length > 0) {
+            this.dataService.addRow(obs);
+        }
+    };
+    TableInputComponent.prototype.calculate = function () {
+        this.dataService.recalculate();
+    };
+    TableInputComponent.prototype.reset = function () {
+        this.dataService.setData([]);
+    };
     TableInputComponent = __decorate([
         core_1.Component({
             selector: 'table-input',
