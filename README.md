@@ -10,7 +10,9 @@ To run:
 To use:
 
  - Click Reset
- - Add a row (observation) separated by `,`
+ - Add a row (observation): write separating by `,` (commas) and press ENTER
+	 - (Do not use the same name for categories of different variables)
+	 - (It is case sensitive)
  - Click Calculate
 	 - Change Support threshold
 
@@ -21,5 +23,5 @@ TODO:
 
  - Check Order 2
  - Do Order 3 and so on
- - Create an input table
+ - Create a better input way for data
  - Visualize generated rules with variables names
