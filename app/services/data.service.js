@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var DataService = (function () {
     function DataService() {
+        this.supportChanged = new core_1.EventEmitter();
     }
     DataService.prototype.getData = function () {
         return this.data;
@@ -22,7 +23,10 @@ var DataService = (function () {
         this.variables_names = names;
     };
     DataService.prototype.setSupport = function (sup) {
-        this.support = sup;
+        if (sup != this.support) {
+            this.support = sup;
+            this.supportChanged.emit(sup);
+        }
     };
     DataService = __decorate([
         core_1.Injectable(), 

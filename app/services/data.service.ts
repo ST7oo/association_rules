@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable()
 export class DataService {
 	data: string[][];
 	variables_names: string[];
 	support: number;
+	public supportChanged: EventEmitter<number>; 
 
 	constructor() {
+		this.supportChanged = new EventEmitter();
 	}
 	
 	getData() {
@@ -22,7 +24,10 @@ export class DataService {
 	}
 	
 	setSupport(sup: number) {
-		this.support = sup;
+		if (sup != this.support){
+			this.support = sup;
+			this.supportChanged.emit(sup);
+		}
 	}
 	
 }

@@ -11,8 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var data_service_1 = require('../services/data.service');
 var StepsComponent = (function () {
+    /*gammas3: number[][];
+    gammas3_display: string[];
+    gammas3_keys: string[];
+    omegas3: number[][];
+    omegas3_display: string[];
+    rules3: string[];
+    supports3: number[];
+    supports3_display: string[];
+    valid_rules3: Object;*/
     function StepsComponent(dataService) {
+        var _this = this;
         this.dataService = dataService;
+        dataService.supportChanged.subscribe(function (sup) { return _this.calculate(); });
     }
     StepsComponent.prototype.ngOnInit = function () {
         this.calculate();
@@ -213,10 +224,40 @@ var StepsComponent = (function () {
                 var index = labels_index.indexOf(this.omegas2[i_omega][0]);
                 if (index != -1) {
                     this.valid_rules2[count++] = [[i1, i2], labels_index[index]];
-                    remaining_classify.splice(remaining_classify.indexOf(i_omega), 1);
+                    remaining_classify.splice(remaining_classify.indexOf(i1 - 1), 1);
+                    remaining_classify.splice(remaining_classify.indexOf(i2 - 1), 1);
                 }
             }
         }
+        /* Order 3 */
+        // TODO
+        /*
+        // gammas3
+        console.log(remaining_classify);
+        this.gammas3 = [];
+        this.gammas3_display = [];
+        for(let i_alpha1 = 0, i_alpha2 = 1; i_alpha1 < remaining_classify.length-1; i_alpha1++, i_alpha2++){
+            for(let i_alpha3 = i_alpha2+1; i_alpha3 < remaining_classify.length; i_alpha3++) {
+                let index_gammas3 = '\u03B1' + (remaining_classify[i_alpha1]+1) + '&\u03B1' + (remaining_classify[i_alpha2]+1) + '&\u03B1' + (remaining_classify[i_alpha3]+1);
+                let intersection = this.gammas1[remaining_classify[i_alpha1]].filter(x =>
+                    this.gammas1[remaining_classify[i_alpha2]].indexOf(x) != -1);
+                console.log(intersection);
+                intersection = intersection.filter(x =>
+                    this.gammas1[remaining_classify[i_alpha3]].indexOf(x) != -1);
+                console.log(intersection);
+                // this.gammas2[index_gammas2] = intersection;
+                // let gamma_display = '{';
+                // for(let v of intersection){
+                // 	gamma_display += 'E' + (v+1) + ', ';
+                // }
+                // if (gamma_display.length > 1) {
+                // 	gamma_display = gamma_display.slice(0,-2);
+                // }
+                // this.gammas2_display[index_gammas2] = gamma_display + '}';
+            }
+        }
+        // this.gammas2_keys = Object.keys(this.gammas2_display);
+        */
     };
     StepsComponent.prototype.intersectionBetas = function (array) {
         var _this = this;

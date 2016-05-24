@@ -39,6 +39,9 @@ var TableInputComponent = (function () {
         ]);
         this.dataService.setSupport(0.1);
     };
+    TableInputComponent.prototype.supportChanged = function (new_support) {
+        this.dataService.setSupport(new_support);
+    };
     TableInputComponent = __decorate([
         core_1.Component({
             selector: 'table-input',

@@ -37,4 +37,8 @@ export class TableInputComponent implements OnInit {
 		]);
 		this.dataService.setSupport(0.1);
 	}
+	
+	supportChanged(new_support) {
+		this.dataService.setSupport(new_support);
+	}
 }
